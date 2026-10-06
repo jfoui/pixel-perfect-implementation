@@ -10,33 +10,164 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CariRouteImport } from './routes/cari'
+import { Route as ApiBookingsRouteImport } from './routes/api/bookings'
+import { Route as ApiHotelsRouteImport } from './routes/api/hotels'
+import { Route as ApiPaymentsRouteImport } from './routes/api/payments'
+import { Route as ApiPetsRouteImport } from './routes/api/pets'
+import { Route as HotelIdRouteImport } from './routes/hotel.$id'
+import { Route as ApiBookingsIdRouteImport } from './routes/api/bookings.$id'
+import { Route as ApiHotelsIdRouteImport } from './routes/api/hotels.$id'
+import { Route as ApiPetsIdRouteImport } from './routes/api/pets.$id'
+import { Route as ApiUpdatesBookingIdRouteImport } from './routes/api/updates.$bookingId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CariRoute = CariRouteImport.update({
+  id: '/cari',
+  path: '/cari',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiBookingsRoute = ApiBookingsRouteImport.update({
+  id: '/api/bookings',
+  path: '/api/bookings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiHotelsRoute = ApiHotelsRouteImport.update({
+  id: '/api/hotels',
+  path: '/api/hotels',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPaymentsRoute = ApiPaymentsRouteImport.update({
+  id: '/api/payments',
+  path: '/api/payments',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPetsRoute = ApiPetsRouteImport.update({
+  id: '/api/pets',
+  path: '/api/pets',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HotelIdRoute = HotelIdRouteImport.update({
+  id: '/hotel/$id',
+  path: '/hotel/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiBookingsIdRoute = ApiBookingsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ApiBookingsRoute,
+} as any)
+const ApiHotelsIdRoute = ApiHotelsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ApiHotelsRoute,
+} as any)
+const ApiPetsIdRoute = ApiPetsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ApiPetsRoute,
+} as any)
+const ApiUpdatesBookingIdRoute = ApiUpdatesBookingIdRouteImport.update({
+  id: '/api/updates/$bookingId',
+  path: '/api/updates/$bookingId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/cari': typeof CariRoute
+  '/api/bookings': typeof ApiBookingsRouteWithChildren
+  '/api/hotels': typeof ApiHotelsRouteWithChildren
+  '/api/payments': typeof ApiPaymentsRoute
+  '/api/pets': typeof ApiPetsRouteWithChildren
+  '/hotel/$id': typeof HotelIdRoute
+  '/api/bookings/$id': typeof ApiBookingsIdRoute
+  '/api/hotels/$id': typeof ApiHotelsIdRoute
+  '/api/pets/$id': typeof ApiPetsIdRoute
+  '/api/updates/$bookingId': typeof ApiUpdatesBookingIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/cari': typeof CariRoute
+  '/api/bookings': typeof ApiBookingsRouteWithChildren
+  '/api/hotels': typeof ApiHotelsRouteWithChildren
+  '/api/payments': typeof ApiPaymentsRoute
+  '/api/pets': typeof ApiPetsRouteWithChildren
+  '/hotel/$id': typeof HotelIdRoute
+  '/api/bookings/$id': typeof ApiBookingsIdRoute
+  '/api/hotels/$id': typeof ApiHotelsIdRoute
+  '/api/pets/$id': typeof ApiPetsIdRoute
+  '/api/updates/$bookingId': typeof ApiUpdatesBookingIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/cari': typeof CariRoute
+  '/api/bookings': typeof ApiBookingsRouteWithChildren
+  '/api/hotels': typeof ApiHotelsRouteWithChildren
+  '/api/payments': typeof ApiPaymentsRoute
+  '/api/pets': typeof ApiPetsRouteWithChildren
+  '/hotel/$id': typeof HotelIdRoute
+  '/api/bookings/$id': typeof ApiBookingsIdRoute
+  '/api/hotels/$id': typeof ApiHotelsIdRoute
+  '/api/pets/$id': typeof ApiPetsIdRoute
+  '/api/updates/$bookingId': typeof ApiUpdatesBookingIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/cari'
+    | '/api/bookings'
+    | '/api/hotels'
+    | '/api/payments'
+    | '/api/pets'
+    | '/hotel/$id'
+    | '/api/bookings/$id'
+    | '/api/hotels/$id'
+    | '/api/pets/$id'
+    | '/api/updates/$bookingId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/cari'
+    | '/api/bookings'
+    | '/api/hotels'
+    | '/api/payments'
+    | '/api/pets'
+    | '/hotel/$id'
+    | '/api/bookings/$id'
+    | '/api/hotels/$id'
+    | '/api/pets/$id'
+    | '/api/updates/$bookingId'
+  id:
+    | '__root__'
+    | '/'
+    | '/cari'
+    | '/api/bookings'
+    | '/api/hotels'
+    | '/api/payments'
+    | '/api/pets'
+    | '/hotel/$id'
+    | '/api/bookings/$id'
+    | '/api/hotels/$id'
+    | '/api/pets/$id'
+    | '/api/updates/$bookingId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CariRoute: typeof CariRoute
+  ApiBookingsRoute: typeof ApiBookingsRouteWithChildren
+  ApiHotelsRoute: typeof ApiHotelsRouteWithChildren
+  ApiPaymentsRoute: typeof ApiPaymentsRoute
+  ApiPetsRoute: typeof ApiPetsRouteWithChildren
+  HotelIdRoute: typeof HotelIdRoute
+  ApiUpdatesBookingIdRoute: typeof ApiUpdatesBookingIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +179,123 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cari': {
+      id: '/cari'
+      path: '/cari'
+      fullPath: '/cari'
+      preLoaderRoute: typeof CariRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/bookings': {
+      id: '/api/bookings'
+      path: '/api/bookings'
+      fullPath: '/api/bookings'
+      preLoaderRoute: typeof ApiBookingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/hotels': {
+      id: '/api/hotels'
+      path: '/api/hotels'
+      fullPath: '/api/hotels'
+      preLoaderRoute: typeof ApiHotelsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/payments': {
+      id: '/api/payments'
+      path: '/api/payments'
+      fullPath: '/api/payments'
+      preLoaderRoute: typeof ApiPaymentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/pets': {
+      id: '/api/pets'
+      path: '/api/pets'
+      fullPath: '/api/pets'
+      preLoaderRoute: typeof ApiPetsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hotel/$id': {
+      id: '/hotel/$id'
+      path: '/hotel/$id'
+      fullPath: '/hotel/$id'
+      preLoaderRoute: typeof HotelIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/bookings/$id': {
+      id: '/api/bookings/$id'
+      path: '/$id'
+      fullPath: '/api/bookings/$id'
+      preLoaderRoute: typeof ApiBookingsIdRouteImport
+      parentRoute: typeof ApiBookingsRoute
+    }
+    '/api/hotels/$id': {
+      id: '/api/hotels/$id'
+      path: '/$id'
+      fullPath: '/api/hotels/$id'
+      preLoaderRoute: typeof ApiHotelsIdRouteImport
+      parentRoute: typeof ApiHotelsRoute
+    }
+    '/api/pets/$id': {
+      id: '/api/pets/$id'
+      path: '/$id'
+      fullPath: '/api/pets/$id'
+      preLoaderRoute: typeof ApiPetsIdRouteImport
+      parentRoute: typeof ApiPetsRoute
+    }
+    '/api/updates/$bookingId': {
+      id: '/api/updates/$bookingId'
+      path: '/api/updates/$bookingId'
+      fullPath: '/api/updates/$bookingId'
+      preLoaderRoute: typeof ApiUpdatesBookingIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface ApiBookingsRouteChildren {
+  ApiBookingsIdRoute: typeof ApiBookingsIdRoute
+}
+
+const ApiBookingsRouteChildren: ApiBookingsRouteChildren = {
+  ApiBookingsIdRoute: ApiBookingsIdRoute,
+}
+
+const ApiBookingsRouteWithChildren = ApiBookingsRoute._addFileChildren(
+  ApiBookingsRouteChildren,
+)
+
+interface ApiHotelsRouteChildren {
+  ApiHotelsIdRoute: typeof ApiHotelsIdRoute
+}
+
+const ApiHotelsRouteChildren: ApiHotelsRouteChildren = {
+  ApiHotelsIdRoute: ApiHotelsIdRoute,
+}
+
+const ApiHotelsRouteWithChildren = ApiHotelsRoute._addFileChildren(
+  ApiHotelsRouteChildren,
+)
+
+interface ApiPetsRouteChildren {
+  ApiPetsIdRoute: typeof ApiPetsIdRoute
+}
+
+const ApiPetsRouteChildren: ApiPetsRouteChildren = {
+  ApiPetsIdRoute: ApiPetsIdRoute,
+}
+
+const ApiPetsRouteWithChildren =
+  ApiPetsRoute._addFileChildren(ApiPetsRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CariRoute: CariRoute,
+  ApiBookingsRoute: ApiBookingsRouteWithChildren,
+  ApiHotelsRoute: ApiHotelsRouteWithChildren,
+  ApiPaymentsRoute: ApiPaymentsRoute,
+  ApiPetsRoute: ApiPetsRouteWithChildren,
+  HotelIdRoute: HotelIdRoute,
+  ApiUpdatesBookingIdRoute: ApiUpdatesBookingIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
