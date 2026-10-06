@@ -10,12 +10,19 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BantuanRouteImport } from './routes/bantuan'
 import { Route as CariRouteImport } from './routes/cari'
+import { Route as CheckoutRouteImport } from './routes/checkout'
+import { Route as HewanRouteImport } from './routes/hewan'
+import { Route as PesananRouteImport } from './routes/pesanan'
+import { Route as ProfilRouteImport } from './routes/profil'
 import { Route as ApiBookingsRouteImport } from './routes/api/bookings'
 import { Route as ApiHotelsRouteImport } from './routes/api/hotels'
 import { Route as ApiPaymentsRouteImport } from './routes/api/payments'
 import { Route as ApiPetsRouteImport } from './routes/api/pets'
 import { Route as HotelIdRouteImport } from './routes/hotel.$id'
+import { Route as SuksesIdRouteImport } from './routes/sukses.$id'
+import { Route as UpdateIdRouteImport } from './routes/update.$id'
 import { Route as ApiBookingsIdRouteImport } from './routes/api/bookings.$id'
 import { Route as ApiHotelsIdRouteImport } from './routes/api/hotels.$id'
 import { Route as ApiPetsIdRouteImport } from './routes/api/pets.$id'
@@ -26,9 +33,34 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BantuanRoute = BantuanRouteImport.update({
+  id: '/bantuan',
+  path: '/bantuan',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CariRoute = CariRouteImport.update({
   id: '/cari',
   path: '/cari',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HewanRoute = HewanRouteImport.update({
+  id: '/hewan',
+  path: '/hewan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PesananRoute = PesananRouteImport.update({
+  id: '/pesanan',
+  path: '/pesanan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfilRoute = ProfilRouteImport.update({
+  id: '/profil',
+  path: '/profil',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiBookingsRoute = ApiBookingsRouteImport.update({
@@ -56,6 +88,16 @@ const HotelIdRoute = HotelIdRouteImport.update({
   path: '/hotel/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SuksesIdRoute = SuksesIdRouteImport.update({
+  id: '/sukses/$id',
+  path: '/sukses/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UpdateIdRoute = UpdateIdRouteImport.update({
+  id: '/update/$id',
+  path: '/update/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiBookingsIdRoute = ApiBookingsIdRouteImport.update({
   id: '/$id',
   path: '/$id',
@@ -79,12 +121,19 @@ const ApiUpdatesBookingIdRoute = ApiUpdatesBookingIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bantuan': typeof BantuanRoute
   '/cari': typeof CariRoute
+  '/checkout': typeof CheckoutRoute
+  '/hewan': typeof HewanRoute
+  '/pesanan': typeof PesananRoute
+  '/profil': typeof ProfilRoute
   '/api/bookings': typeof ApiBookingsRouteWithChildren
   '/api/hotels': typeof ApiHotelsRouteWithChildren
   '/api/payments': typeof ApiPaymentsRoute
   '/api/pets': typeof ApiPetsRouteWithChildren
   '/hotel/$id': typeof HotelIdRoute
+  '/sukses/$id': typeof SuksesIdRoute
+  '/update/$id': typeof UpdateIdRoute
   '/api/bookings/$id': typeof ApiBookingsIdRoute
   '/api/hotels/$id': typeof ApiHotelsIdRoute
   '/api/pets/$id': typeof ApiPetsIdRoute
@@ -92,12 +141,19 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bantuan': typeof BantuanRoute
   '/cari': typeof CariRoute
+  '/checkout': typeof CheckoutRoute
+  '/hewan': typeof HewanRoute
+  '/pesanan': typeof PesananRoute
+  '/profil': typeof ProfilRoute
   '/api/bookings': typeof ApiBookingsRouteWithChildren
   '/api/hotels': typeof ApiHotelsRouteWithChildren
   '/api/payments': typeof ApiPaymentsRoute
   '/api/pets': typeof ApiPetsRouteWithChildren
   '/hotel/$id': typeof HotelIdRoute
+  '/sukses/$id': typeof SuksesIdRoute
+  '/update/$id': typeof UpdateIdRoute
   '/api/bookings/$id': typeof ApiBookingsIdRoute
   '/api/hotels/$id': typeof ApiHotelsIdRoute
   '/api/pets/$id': typeof ApiPetsIdRoute
@@ -106,12 +162,19 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bantuan': typeof BantuanRoute
   '/cari': typeof CariRoute
+  '/checkout': typeof CheckoutRoute
+  '/hewan': typeof HewanRoute
+  '/pesanan': typeof PesananRoute
+  '/profil': typeof ProfilRoute
   '/api/bookings': typeof ApiBookingsRouteWithChildren
   '/api/hotels': typeof ApiHotelsRouteWithChildren
   '/api/payments': typeof ApiPaymentsRoute
   '/api/pets': typeof ApiPetsRouteWithChildren
   '/hotel/$id': typeof HotelIdRoute
+  '/sukses/$id': typeof SuksesIdRoute
+  '/update/$id': typeof UpdateIdRoute
   '/api/bookings/$id': typeof ApiBookingsIdRoute
   '/api/hotels/$id': typeof ApiHotelsIdRoute
   '/api/pets/$id': typeof ApiPetsIdRoute
@@ -121,12 +184,19 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/bantuan'
     | '/cari'
+    | '/checkout'
+    | '/hewan'
+    | '/pesanan'
+    | '/profil'
     | '/api/bookings'
     | '/api/hotels'
     | '/api/payments'
     | '/api/pets'
     | '/hotel/$id'
+    | '/sukses/$id'
+    | '/update/$id'
     | '/api/bookings/$id'
     | '/api/hotels/$id'
     | '/api/pets/$id'
@@ -134,12 +204,19 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/bantuan'
     | '/cari'
+    | '/checkout'
+    | '/hewan'
+    | '/pesanan'
+    | '/profil'
     | '/api/bookings'
     | '/api/hotels'
     | '/api/payments'
     | '/api/pets'
     | '/hotel/$id'
+    | '/sukses/$id'
+    | '/update/$id'
     | '/api/bookings/$id'
     | '/api/hotels/$id'
     | '/api/pets/$id'
@@ -147,12 +224,19 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/bantuan'
     | '/cari'
+    | '/checkout'
+    | '/hewan'
+    | '/pesanan'
+    | '/profil'
     | '/api/bookings'
     | '/api/hotels'
     | '/api/payments'
     | '/api/pets'
     | '/hotel/$id'
+    | '/sukses/$id'
+    | '/update/$id'
     | '/api/bookings/$id'
     | '/api/hotels/$id'
     | '/api/pets/$id'
@@ -161,12 +245,19 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BantuanRoute: typeof BantuanRoute
   CariRoute: typeof CariRoute
+  CheckoutRoute: typeof CheckoutRoute
+  HewanRoute: typeof HewanRoute
+  PesananRoute: typeof PesananRoute
+  ProfilRoute: typeof ProfilRoute
   ApiBookingsRoute: typeof ApiBookingsRouteWithChildren
   ApiHotelsRoute: typeof ApiHotelsRouteWithChildren
   ApiPaymentsRoute: typeof ApiPaymentsRoute
   ApiPetsRoute: typeof ApiPetsRouteWithChildren
   HotelIdRoute: typeof HotelIdRoute
+  SuksesIdRoute: typeof SuksesIdRoute
+  UpdateIdRoute: typeof UpdateIdRoute
   ApiUpdatesBookingIdRoute: typeof ApiUpdatesBookingIdRoute
 }
 
@@ -179,11 +270,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/bantuan': {
+      id: '/bantuan'
+      path: '/bantuan'
+      fullPath: '/bantuan'
+      preLoaderRoute: typeof BantuanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/cari': {
       id: '/cari'
       path: '/cari'
       fullPath: '/cari'
       preLoaderRoute: typeof CariRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hewan': {
+      id: '/hewan'
+      path: '/hewan'
+      fullPath: '/hewan'
+      preLoaderRoute: typeof HewanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pesanan': {
+      id: '/pesanan'
+      path: '/pesanan'
+      fullPath: '/pesanan'
+      preLoaderRoute: typeof PesananRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profil': {
+      id: '/profil'
+      path: '/profil'
+      fullPath: '/profil'
+      preLoaderRoute: typeof ProfilRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/bookings': {
@@ -219,6 +345,20 @@ declare module '@tanstack/react-router' {
       path: '/hotel/$id'
       fullPath: '/hotel/$id'
       preLoaderRoute: typeof HotelIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sukses/$id': {
+      id: '/sukses/$id'
+      path: '/sukses/$id'
+      fullPath: '/sukses/$id'
+      preLoaderRoute: typeof SuksesIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/update/$id': {
+      id: '/update/$id'
+      path: '/update/$id'
+      fullPath: '/update/$id'
+      preLoaderRoute: typeof UpdateIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/bookings/$id': {
@@ -289,12 +429,19 @@ const ApiPetsRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BantuanRoute: BantuanRoute,
   CariRoute: CariRoute,
+  CheckoutRoute: CheckoutRoute,
+  HewanRoute: HewanRoute,
+  PesananRoute: PesananRoute,
+  ProfilRoute: ProfilRoute,
   ApiBookingsRoute: ApiBookingsRouteWithChildren,
   ApiHotelsRoute: ApiHotelsRouteWithChildren,
   ApiPaymentsRoute: ApiPaymentsRoute,
   ApiPetsRoute: ApiPetsRouteWithChildren,
   HotelIdRoute: HotelIdRoute,
+  SuksesIdRoute: SuksesIdRoute,
+  UpdateIdRoute: UpdateIdRoute,
   ApiUpdatesBookingIdRoute: ApiUpdatesBookingIdRoute,
 }
 export const routeTree = rootRouteImport
