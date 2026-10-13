@@ -20,7 +20,7 @@ export const Route = createFileRoute("/api/bookings")({
       GET: async () => json(db.bookings),
       POST: async ({ request }) => {
         const parsed = BookingSchema.safeParse(await request.json());
-        if (!parsed.success) return json({ error: parsed.error.issues[0].message }, 400);
+        if (!parsed.success) return json({ error: parsed.error.issues[0]?.message }, 400);
         const b = parsed.data;
         const room = getHotel(b.hotelId)?.rooms.find((r) => r.id === b.roomId);
         if (!room) return json({ error: "Kamar tidak ditemukan" }, 404);

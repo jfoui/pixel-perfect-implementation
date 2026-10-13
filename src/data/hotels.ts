@@ -58,7 +58,7 @@ const basePolicies = [
 
 const gal = (order: string[]) => {
   const map: Record<string, string> = { Eksterior: h1, Lobby: h5, Kamar: h3, Kandang: h3, "Area bermain": h2, "Ruang kucing": h4, Lounge: hero };
-  return order.map((label) => ({ label, src: map[label] }));
+  return order.map((label) => ({ label, src: map[label] ?? hero }));
 };
 
 export const HOTELS: Hotel[] = [

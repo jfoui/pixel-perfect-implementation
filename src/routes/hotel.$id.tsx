@@ -54,8 +54,8 @@ function HotelDetail() {
 
       <div className="grid gap-3 md:grid-cols-[2fr_1fr]">
         <div className="relative overflow-hidden rounded-3xl">
-          <img src={hotel.gallery[img].src} alt={hotel.gallery[img].label} className="aspect-[4/3] w-full object-cover md:aspect-[16/10]" />
-          <span className="absolute bottom-3 left-3 rounded-full bg-card/95 px-3 py-1 text-xs font-semibold">{hotel.gallery[img].label}</span>
+          <img src={(hotel.gallery[img] ?? hotel.gallery[0])!.src} alt={(hotel.gallery[img] ?? hotel.gallery[0])!.label} className="aspect-[4/3] w-full object-cover md:aspect-[16/10]" />
+          <span className="absolute bottom-3 left-3 rounded-full bg-card/95 px-3 py-1 text-xs font-semibold">{(hotel.gallery[img] ?? hotel.gallery[0])!.label}</span>
         </div>
         <div className="flex gap-2 overflow-x-auto md:grid md:grid-cols-2 md:content-start">
           {hotel.gallery.map((g, i) => (

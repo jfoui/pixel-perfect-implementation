@@ -77,7 +77,7 @@ function SearchPage() {
       </Group>
       <Group title="Ukuran kandang">
         {(["semua", "kecil", "sedang", "besar"] as const).map((s) => (
-          <Chip key={s} on={f.size === s} onClick={() => set("size", s)}>{s[0].toUpperCase() + s.slice(1)}</Chip>
+          <Chip key={s} on={f.size === s} onClick={() => set("size", s)}>{s.charAt(0).toUpperCase() + s.slice(1)}</Chip>
         ))}
       </Group>
       <Group title="Fasilitas">
@@ -95,7 +95,7 @@ function SearchPage() {
     <PageContainer>
       <div className="mb-6">
         <p className="text-sm font-medium text-muted-foreground">
-          {search.location.split("&")[0].trim()} · {rangeLabel(search.checkIn, search.checkOut)} · {n} malam
+          {(search.location.split("&")[0] ?? "").trim()} · {rangeLabel(search.checkIn, search.checkOut)} · {n} malam
           <Link to="/" className="ml-2 font-semibold text-primary hover:underline">Ubah</Link>
         </p>
         <h1 className="mt-1 text-3xl font-extrabold md:text-4xl">Tempat terbaik untuk {pet?.name ?? "sahabatmu"}</h1>

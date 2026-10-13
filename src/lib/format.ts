@@ -4,7 +4,7 @@ const BULAN = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "O
 const BULAN_PANJANG = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
 
 const parse = (iso: string) => {
-  const [y, m, d] = iso.split("-").map(Number);
+  const [y, m, d] = iso.split("-").map(Number) as [number, number, number];
   return { y, m: m - 1, d };
 };
 
