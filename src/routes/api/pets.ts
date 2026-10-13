@@ -15,8 +15,8 @@ export const Route = createFileRoute("/api/pets")({
       GET: async () => json(db.pets),
       POST: async ({ request }) => {
         const parsed = PetSchema.safeParse(await request.json());
-        if (!parsed.success) return json({ error: parsed.error.issues[0].message }, 400);
-        db.pets = [...db.pets.filter((p) => p.id !== parsed.data.id), parsed.data];
+        if (!parsed.success) return json({ error: parsed.error.issues[0]?.message }, 400);
+        db.pets = [...db.pets.filter((p) => p["id"] !== parsed.data.id), parsed.data];
         return json(parsed.data, 201);
       },
     },
